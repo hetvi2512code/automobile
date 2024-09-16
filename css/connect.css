@@ -1,0 +1,171 @@
+
+
+
+.connect-container {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+:root {
+    --primary-color: #ff3c78;
+    --light-black: rgba(0, 0, 0, 0.89);
+    --black: #000;
+    --white: #fff;
+    --grey: #aaa;
+}
+
+.connect-contact {
+    margin-top: 150px;
+    
+}
+
+
+
+.connect-form {
+    display: flex;
+    justify-content: space-between;
+    margin: 80px 0;
+}
+
+.connect-form .connect-form-txt {
+    flex-basis:46%;
+}
+
+.connect-form .connect-form-txt h1 {
+    font-weight: 600;
+    color: var(--black);
+    font-size: 40px;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    
+}
+
+.connect-form .connect-form-txt span {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.connect-form .connect-form-txt h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: var(--black);
+}
+
+.connect-form .connect-form-txt p {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.connect-form .connect-form-details {
+    
+    flex-basis:46%;
+}
+
+.connect-form .connect-form-details input[type="text"],
+.connect-form .connect-form-details input[type="email"] {
+    padding: 15px 20px;
+    color: var(--black);
+    outline: none;
+    border: 1px solid var(--grey);
+    margin: 35px 15px;
+    font-size: 14px;
+}
+
+.connect-form .connect-form-details textarea {
+    padding: 15px 20px;
+    margin: 0 15px;
+    color: var(--black);
+    outline: none;
+    border: 1px solid var(--grey);
+    font-size: 14px;
+    resize: none;
+}
+
+.connect-form .connect-form-details button {
+    padding: 15px 25px;
+    color: var(--white);
+    font-weight: 500;
+    background: var(--black);
+    outline: none;
+    border: none;
+    margin: 15px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.connect-form .connect-form-details button:hover {
+    background: rgb(18, 114, 224);
+}
+
+.connect-hiddentsendmessage {
+    font-weight: 600;
+    color: var(--black);
+    font-size: 25px;
+    letter-spacing: 0px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    color: var(--light-black);
+    display: none;
+}
+
+#name:focus,
+#email:focus,
+#message:focus {
+    box-shadow: 0 0 3px 2px #bebebe;
+}
+
+@media (max-width: 500px) {
+    .connect-form {
+        display: flex;
+        flex-direction: column;
+    }
+    .connect-form .connect-form-details button {
+        margin-left: 0;
+    }
+    .connect-form .connect-form-details input[type="text"],
+    .connect-form .connect-form-details input[type="email"],
+    .connect-form .connect-form-details textarea {
+        width: 100%;
+        margin-left: 0;
+    }
+    .connect-form .connect-form-details input[type="text"] {
+        margin-bottom: 0px;
+    }
+    .connect-hiddentsendmessage {
+        display: block;
+    }
+
+}
+
+@media (min-width: 501px) and (max-width: 988px) {
+    .connect-form {
+        display: flex;
+        flex-direction: column;
+    }
+    .connect-form .connect-form-details button {
+        margin-left: 0;
+    }
+    .connect-form .connect-form-details input[type="text"],
+    .connect-form .connect-form-details input[type="email"],
+    .connect-form .connect-form-details textarea {
+        width: 100%;
+        margin-left: 0;
+    }
+    .connect-form .connect-form-details input[type="text"] {
+        margin-bottom: 0px;
+    }
+    .connect-hiddentsendmessage {
+        display: block;
+    }
+    
+}

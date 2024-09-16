@@ -1,0 +1,182 @@
+:root {
+    --bg: hsl(0 0% 2%);
+  }
+main {
+    width: 180ch;
+    max-width: 100%;
+    
+  
+    margin-top: 170px;
+    margin-bottom: 190px ;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  body {
+    font-family: 'Geist', arial;
+    font-weight: 100;
+  }
+  
+  .mycustomlist {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .mycustomlist li {
+    padding: 1rem;
+    list-style-type: none;
+  }
+  
+  .mycustomlist::after {
+    border-radius: 1rem;
+    content: "";
+    position: absolute;
+    background: hsl(0 0% 10%);
+    pointer-events: none;
+    z-index: -2;
+    inset:
+      calc(var(--top) * 1px)
+      calc(100% - (var(--right) * 1px))
+      calc(100% - (var(--bottom) * 1px))
+      calc(var(--left) * 1px);
+    transition: inset 0.2s;
+  }
+  
+  .mycustomlist[data-enhanced]:hover {
+    --active: 1;
+  }
+  .mycustomlist[data-enhanced]::after {
+    opacity: var(--active, 0);
+    transition: opacity 0.2s, inset 0.2s 0.2s;
+  }
+  .mycustomlist[data-enhanced]:hover::after {
+    transition: opacity 0.2s 0.2s, inset 0.2s;
+  }
+  
+  @supports(anchor-name: --anchor) {
+    li:nth-of-type(1) article { anchor-name: --develop; }
+    li:nth-of-type(2) article { anchor-name: --preview; }
+    li:nth-of-type(3) article { anchor-name: --ship; }
+    li:nth-of-type(4) article { anchor-name: --profit; }
+  
+    :root { --anchor: --develop; }
+    :root:has(li:nth-of-type(1):hover) { --anchor: --develop; }
+    :root:has(li:nth-of-type(2):hover) { --anchor: --preview; }
+    :root:has(li:nth-of-type(3):hover) { --anchor: --ship; }
+    :root:has(li:nth-of-type(4):hover) { --anchor: --profit; }  
+  
+    .mycustomlist::after {
+      inset:
+        anchor(var(--anchor) top)
+        anchor(var(--anchor) right)
+        anchor(var(--anchor) bottom)
+        anchor(var(--anchor) left);
+    }
+  
+    .mycustomlist:has(li:hover) {
+      --active: 1;
+    }
+    .mycustomlist::after {
+      opacity: var(--active, 0);
+      transition: opacity 0.2s, inset 0.2s 0.2s;
+    }
+    .mycustomlist:hover::after {
+      transition: opacity 0.2s 0.2s, inset 0.2s;
+    }
+    
+    article::after {
+      content: unset;
+      display: none;
+    }
+  }
+  
+  .mycustomlist:not([data-enhanced]) article::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: hsl(0 0% 10%);
+    border-radius: 1rem;
+    opacity: var(--li-active, 0);
+    transition: opacity 0.2s;
+  }
+
+  
+  article {
+    color: hsl(0 0% 80%);
+    padding: 2.2rem;
+    display: grid;
+    gap: 0.5rem;
+    position: relative;
+    
+  }
+  
+  article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(var(--bg) 0 2px, transparent 2px 38px) -20px -20px / 40px 40px,
+      linear-gradient(90deg, var(--bg) 0 2px, transparent 2px 38px) -20px -20px / 40px 40px;
+    -webkit-mask: linear-gradient(-35deg, var(--bg) 0%, transparent 45%);
+            mask: linear-gradient(-35deg, var(--bg) 0%, transparent 45%);
+    z-index: -1;
+    opacity: var(--li-active, 0);
+    transition: opacity 0.2s;
+  }
+  
+  .mycustomlist li:hover {
+    --li-active: 1;
+  }
+  
+  article h3 {
+    margin: 0;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    color: rgb(112, 112, 112);
+  }
+  
+  article p {
+    margin: 0;
+    text-wrap: pretty;
+    background: linear-gradient(hsl(0 0% 80%), hsl(0 0% 50%));
+    color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+    font-weight: 80;
+    color:rgb(138, 138, 138);
+  }
+  
+  article svg {
+    width: 44px;
+  }
+  
+  article svg path {
+    stroke-width: 0.75;
+    stroke: hsl(var(--hue, 30) calc(var(--li-active, 0) * 60%) 60%);
+    transition: stroke 0.2s;
+  }
+  
+  li:nth-of-type(1) { --hue: 30; }
+  li:nth-of-type(2) { --hue: 280; }
+  li:nth-of-type(3) { --hue: 210; }
+  li:nth-of-type(4) { --hue: 120; }
+
+
+
+  @media screen and (max-width: 1000px) and (min-width:300px) {
+    
+    .mycustomlist {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    
+  }

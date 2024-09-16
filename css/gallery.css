@@ -1,0 +1,42 @@
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  
+  .pined {
+    overflow: hidden;
+    background-color: var(--black);
+  }
+  .pined .pined-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 600px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .pined .pined-list {
+    position: absolute;
+    left: 0;
+    display: flex;
+    gap: 60px;
+  }
+  .pined .pined-list li {
+    width: 600px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  .pined .pined-list li img {
+    width: 100%;
+    object-fit: contain;
+  }
+  

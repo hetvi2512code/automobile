@@ -1,0 +1,20 @@
+.bmwcar-container-fluid
+{
+    width: 100%;
+    margin: 0;
+    margin-top: 98px;
+}
+
+.bmwrow
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bmwcol-12 {width: 100%;}
+
+.bmwimg-width
+{
+    width: 100%;
+    display: block;
+}
